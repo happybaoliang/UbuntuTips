@@ -32,7 +32,7 @@ $ export MATLAB_JAVA=/usr/lib/jvm/java-6-sun-1.6.0.20/jre/
 
 (10) 点击“安装”进行安装
 
-(11) 倒入许可协议（$/mnt/crack/lic_standalone.dat$）
+(11) 倒入许可协议（$/mnt/crack/lic\_standalone.dat$）
 
 (12) 等待安装结束
 
@@ -80,11 +80,11 @@ allfonts.chinese-arphic1=-misc-simsun-medium-r-normal--0-0-0-0-p-0-iso10646-1
 
 对于３２位系统：
 
-\verb"$ sudo ln -s /lib/i386-linux-gnu/libc.so.6 /lib/libc.so.6"
+\verb" sudo ln -s /lib/i386-linux-gnu/libc.so.6 /lib/libc.so.6"
 
 对于６４位系统：
 
-\verb"$ sudo ln -s /lib/x86_64-linux-gnu/libc.so.6 /lib64/libc.so.6"
+\verb" sudo ln -s /lib/x86_64-linux-gnu/libc.so.6 /lib64/libc.so.6"
 
 \subsection{Vmware安装及配置}
 
@@ -92,6 +92,21 @@ allfonts.chinese-arphic1=-misc-simsun-medium-r-normal--0-0-0-0-p-0-iso10646-1
 (1) 双击deb文件进行安装
 
 (2) 选择对应版本的extension包进行安装
+
+(3) I'm on Ubuntu 12.04 64-bit and encountered exactly this problem. What finally worked was going to the virtualbox website, downloading the package and installing it via:
+
+sudo apt-get purge virtualbox dkms linux-headers-\$(uname -r)
+
+sudo apt-get install linux-headers-\$(uname -r)
+
+sudo dpkg -i virtualbox-4.2\_4.2.10-84104~Ubuntu~precise\_amd64.deb
+
+Then I ran:
+
+sudo /etc/init.d/vboxdrv setup
+
+And it worked like a charm.
+
 
 \subsection{Cuda模拟器Ocelot的安装及配置}
 (1) 建议使用svn checkout 最新的trunk
@@ -943,7 +958,49 @@ sudo apt-get install vim
 \verb"$ sudo apt-get install python python-dev"
 
 \subsection{安装版本管理工具}
+(1)安装各种版本管理工具 
+		
 \verb"$ sudo apt-get install subversion cvs git git-core git-doc git-svn git-email git-gui gitk"
+
+(2)配置git版本管理工具
+
+\verb"$ git config --global user.name happybaoliang"
+
+\verb"$ git config --global user.email happybaoliang@gmail.com"
+
+\verb"$ git config --global core.editor vim"
+
+(3)创建验证用的公钥
+
+git默认是通过ssh的方式来访问资源库的，所以需要在本地创建验证用的文件。
+
+\verb"$ ssh-keygen -C 'happybaoliang@gmail.com' -t rsa"
+
+上述命令会在\~/.ssh/目录下建立相应的密钥文件，然后可以使用下面的命令来测试链接是否畅通：
+
+\verb"$ ssh -v git@github.com"
+
+(4)上传公钥
+
+在github.com的界面选择右上角的account settings然后选择SSH Public Keys，再选择添加。Title可以随便命名，key的内容拷贝自\~/.ssh/id\_rsa.pub的内容（可以通过cat命令查看）。然后运行下面的命令即可查看是否链接建立成功。
+
+\verb"$ ssh -v git@github.com"
+
+如果输出图\ref{github}所示的信息则说明链接建立成功。
+\begin{figure}
+\centering\includegraphics[scale=0.5]{figures/github.png}
+\caption{github连接建立成功}\label{github}
+\end{figure}
+
+(5)配置显示颜色
+
+\verb"$ git config --global color.status auto"
+
+\verb"$ git config --global color.diff auto"
+
+\verb"$ git config --global color.branch auto"
+
+\verb"$ git config --global color.interactive auto"
 
 \subsection{安装perl}
 \verb"$ sudo apt-get install perl"
@@ -1199,7 +1256,7 @@ cannot find any platform files for product in /usr/synopsys/scl/scl\_v10.9.3\_co
 \caption{synopsys安装界面}\label{synopsys4}
 \end{figure}
 
-（4）
+（4）运行sssverify.exe synopsys.dat生成secret code.
 　　
 (5)运行KeyGen.exe,在Secretdata栏中输出上面的secret data码，在host id中填入你的mac地址。然后点击generate命令即可以得到lincense.dat文件。
 
@@ -1271,6 +1328,13 @@ export VCS\_ARCH\_OVERRIDE=linux
 　　#ls –l g++*
 　　#mv g++ g++.bak
 　　#ln –s g++-4.4 g++
+\end{verbatim}
+
+(17)如果在64位系统中编译过程中遇到下面的错误：g++ selected multilib '32' not installed
+
+需要安装gcc、g++的multilib包，直接执行下面的命令，会自动安装g++、gcc的multilib包；
+\begin{verbatim}
+sudo apt-get install g++-4.4-multilib
 \end{verbatim}
 
 \subsection{安装Source Insight}

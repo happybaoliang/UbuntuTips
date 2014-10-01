@@ -51,7 +51,15 @@ gpg --export --armor 0c713da6 | sudo apt-key add -
 \subsection{安装Adobe Reader}
 (1)双击下载的安装文件即可完成安装
 
-(2)解决PDF阅读器的乱码问题
+(2)添加中文支持：
+
+下载font pack包并解压，在目录中运行
+
+\verb"$ sudo sh ./INSTALL"
+
+按提示操作，注意Acrobat Reader 9的安装目录是/opt/Adobe,在输入该目录时只需要输入/opt即可。安装非常简易。安装完成以后便可以打开中文文档。
+		
+(3)解决PDF阅读器的乱码问题
 
 \subsection{安装China Union 3G驱动}
 
@@ -169,6 +177,12 @@ $ sudo apt-get install dropbox nautilus-dropbox
 sudo apt-add-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
 sudo apt-get update && sudo apt-get install skype
 \end{verbatim}
+
+\subsection{安装图片编辑工具gimp}
+\verb"$ sudo apt-get install gimp"
+
+\subsection{安装电驴下载软件amule}
+\verb"$ sudo apt-get install amule"
 
 \subsection{smaplyer}
 \verb"$ sudo apt-get install smplayer subdownloader"
