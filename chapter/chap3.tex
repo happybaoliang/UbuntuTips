@@ -1002,6 +1002,20 @@ git默认是通过ssh的方式来访问资源库的，所以需要在本地创�
 
 \verb"$ git config --global color.interactive auto"
 
+(6)中文乱码的解决方法
+
+在bash提示符下输入：
+
+\verb"$ git config --global core.quotepath false"
+
+core.quotepath设为false的话，就不会对0×80以上的字符进行quote。中文显示正常。
+
+然后输入下面命令：
+
+\verb"$ git config --global gui.encoding utf-8"
+\verb"$ git config --global i18n.commitencoding utf-8"
+\verb"$ git config --global i18n.logoutputencoding gbk"
+
 \subsection{安装perl}
 \verb"$ sudo apt-get install perl"
 
@@ -1402,4 +1416,7 @@ sudo apt-get install g++-4.4-multilib
 
 \subsection{安装meld}
 \verb"$ sudo apt-get install meld"
+
+\subsection{安装markdown编辑器}
+\verb"$ sudo apt-get install retext"
 
