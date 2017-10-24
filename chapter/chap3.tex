@@ -1420,3 +1420,10 @@ sudo apt-get install g++-4.4-multilib
 \subsection{安装markdown编辑器}
 \verb"$ sudo apt-get install retext"
 
+默认的显示比较难看，可以为retex指定一个css主题：在~/.config/ReText project/ReText.conf文件中添加以下两行：
+\verb"styleSheet=youxia.css"
+\verb"userWebKit=true"
+
+为了开启数学支持，可以添加MathJax插件：在~/.config/markdonw-extensions.txt文件中添加以下两行：
+\verb"mathjax"
+\verb"attr_list"
