@@ -241,6 +241,13 @@ sudo apt-get remove 内核文件名 （例如：linux-image-2.6.27-2-generic）
 
 最后不要忘了看看当前内核：uname -a
 
+(6) 更彻底的删除内核方法：
+
+\verb"#dpkg --list | grep linux-image"
+\verb"#sudo apt-get purge linux-image-*"
+\verb"#dpkg --list | grep linux-headers"
+\verb"#sudo apt-get purge linux-headers"
+
 \subsection{安装文件的默认打开方式}
 可以用Ubuntu Tweak中的“文件类型管理器”改
 
