@@ -288,3 +288,10 @@ sudo apt-get install sensors-applet --force-yes -y
 \subsection {解决在virtualbox中无法进入共享目录}
 \verb"$ sudo ln -f -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions/mount.vboxsf /sbin/mount.vboxsf"
 
+\subsection {安装exfat}
+对于ubuntu 14.04版本，直接运行下面的命令就可以了：
+\verb"$ sudo apt-get install exfat-utils"
+安装完之后重启生效。
+
+对于ubuntu 12.04 ~ 13.10的版本，分别：
+\verb"$ sudo add-apt-repository ppa:relan/exfatsudo apt-get updatesudo apt-get install exfat-utils fuse-exfat"
