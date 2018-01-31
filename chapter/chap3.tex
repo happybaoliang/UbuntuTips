@@ -943,6 +943,9 @@ sudo apt-get install umbrello --force-yes –y
 \verb"set incsearch"
 不区分大小写：
 \verb"set ignorecase"
+开启或者禁止环形搜索：
+\verb"set nowrapscan"
+\verb"set wrapscan"
 
 \subsection{安装Emacs}
 (1) 安装emacs
@@ -1434,3 +1437,13 @@ sudo apt-get install g++-4.4-multilib
 
 \subsection{安装cmake}
 \verb"$ sudo apt-get install cmake"
+
+\subsection{安装docker}
+\verb"sudo apt-get install docker docker.io"
+\verb"docker pull daocloud.io/daocloud/tensorflow:latest"
+\verb"sudo mkdir -p /data/tensorflow/notebooks"
+\verb"docker run -it --rm --name myts -v /data/tensorflow/notebooks:/notebooks -p 8888:8888 daocloud.io/daocloud/tensorflow:latest"
+
+打个补丁
+\verb"#!/usr/bin/env bash"
+\verb"jupyter notebook --no-browser --NotebookApp.token='token1234' > /notebooks/jupyter-notebook.log"
