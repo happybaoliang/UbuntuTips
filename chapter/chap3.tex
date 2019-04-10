@@ -400,6 +400,8 @@ the example code:
 \subsection{SoCLib的安装}
 
 \subsection{TeX Live 2011 安装步骤}
+CTEX 有 TexLive （TexLive为Latex安装包的名字）的所有内容，还包括了中文的支持。但是在Linux环境下没有对应的ctex安装包.
+
 第一步：准备
 
 我是使用光盘镜像安装TeX Live 2011,所以在安装前需要准备如下材料：
@@ -488,7 +490,7 @@ vi ~/.profile或者vim /etc/bash.bashrc
 
 编辑前ctex-xecjk-winfonts.def如下：
 \begin{verbatim}
-　　% ctex-xecjk-winfonts.def: Windows 的 xeCJK 字体设置,默认为六种中易字体
+　　% ctex-xecjk-winfonts.def: Windows 的 xeCJK 字体设置,默认为六种中文字体
 　　%vim:ft=tex
 　　\setCJKmainfont[BoldFont={SimHei},ItalicFont={[simkai.ttf]}]  
 　　　　{SimSun}
@@ -1465,12 +1467,12 @@ sudo apt-get install g++-4.4-multilib
 \verb"curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash"
 \verb"sudo apt-get install gitlab-runner"
 \verb"sudo gitlab-runner register"
-在注册过程中，coordinator URL和gitlab-ci token可以在http://localhost/help/ci/quick_start/README页面找到。gitlab-ci tags要与.gitlab-ci.yml文件中的tag一致。如果注册成功，在项目首页右侧设置->CI/CD Pipelines->Runners activated for this project项目下就可以看到刚才注册的runner了。
+在注册过程中，coordinator URL和gitlab-ci token可以在http://localhost/help/ci/quick\_start/README页面找到。gitlab-ci tags要与.gitlab-ci.yml文件中的tag一致。如果注册成功，在项目首页右侧设置->CI/CD Pipelines->Runners activated for this project项目下就可以看到刚才注册的runner了。
 
 有时runner会连接不上，或者在项目仓库->设置->runner里呈灰色，这有可能是runner机器上没有启动gitlab-runner引起的，可以执行ps -ef | grep gitlab看看是否存在gitlab-runner的进程，如果没有则执行gitlab-runner start 命令启动runner服务。
 
 \subsection{安装jenkins}
-官网下载jenkens二进制包安装即可,可以在/etc/default/jenkins中修改jenkins的默认端口HTTP_PORT以防止端口冲突。然后运行下面的命令启动jenkins:
+官网下载jenkens二进制包安装即可,可以在/etc/default/jenkins中修改jenkins的默认端口HTTP\_PORT以防止端口冲突。然后运行下面的命令启动jenkins:
 \verb"sudo /etc/init.d/jenkins restart"
 
 \subsection{安装redmine}
