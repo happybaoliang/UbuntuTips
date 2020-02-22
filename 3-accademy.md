@@ -1854,6 +1854,12 @@ set cursorline
 syntax on
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
+set expandtab
+set tabstop=4
+set scrolloff=4
+set softtabstop=4
+set ignorecase
+set showmatch
 ```
 
-其中，第一行显示行号，第二行增量搜索，第三行会在第81列显示一个红色竖线，第四行会高亮搜索项，第五行会高亮显示当前行，第六开打开语法高亮，第七行和第八行用于高亮显示行尾空格。
+其中，第一行显示行号，第二行增量搜索，第三行会在第81列显示一个红色竖线，第四行会高亮搜索项，第五行会高亮显示当前行，第六开打开语法高亮，第七行和第八行用于高亮显示行尾空格, 第8-10行将tab替换为4个空格，第11行忽略大小写，第12行高亮显示搜索项。
