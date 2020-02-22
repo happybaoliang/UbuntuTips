@@ -1840,3 +1840,20 @@ sudo service ssh --full-restart
 点击完成，在打开的属性页选择“使用最高权限运行”，避免错误。
 
 7. 大功告成。
+
+## vim配置
+
+vim中比较常用的配置：
+
+```
+set number
+set ic
+set colorcolumn=81
+set hlsearch
+set cursorline
+syntax on
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+```
+
+其中，第一行显示行号，第二行增量搜索，第三行会在第81列显示一个红色竖线，第四行会高亮搜索项，第五行会高亮显示当前行，第六开打开语法高亮，第七行和第八行用于高亮显示行尾空格。
