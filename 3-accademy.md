@@ -1125,19 +1125,30 @@ $ sudo apt-get install eclipse
 $ sudo apt-get install vim
 ```
 
-配置vim
+vim中比较常用的配置：
 
 ```
-//增量搜索:
-set incsearch
-//不区分大小写：
+set number
+set ic
+set colorcolumn=81
+set hlsearch
+set cursorline
+syntax on
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+set expandtab
+set tabstop=4
+set scrolloff=4
+set softtabstop=4
 set ignorecase
-//开启或者禁止环形搜索：
-set nowrapscan
+set showmatch
 set wrapscan
 ```
 
+其中，第一行显示行号，第二行增量搜索，第三行会在第81列显示一个红色竖线，第四行会高亮搜索项，第五行会高亮显示当前行，第六开打开语法高亮，第七行和第八行用于高亮显示行尾空格, 第8-10行将tab替换为4个空格，第11行忽略大小写，第12行高亮显示搜索项，第14行开启环形搜索。
+
 ## 安装Emacs
+
 (1) 安装emacs
 
 (2) 修改emacs配置文件，将下面的内容拷贝到/home目录下的.emacs.conf文件中。
@@ -1736,14 +1747,6 @@ sudo cp -a libgtest_main.so libgtest.so /usr/lib/
 sudo ldconfig -v | grep gtest
 ```
 
-
-
-## 支持exFat文件系统
-
-```
-sudo apt install exfat-fuse exfat-utils
-```
-
 ## 安装gitlab
 
 ```
@@ -1841,25 +1844,4 @@ sudo service ssh --full-restart
 
 7. 大功告成。
 
-## vim配置
 
-vim中比较常用的配置：
-
-```
-set number
-set ic
-set colorcolumn=81
-set hlsearch
-set cursorline
-syntax on
-highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
-set expandtab
-set tabstop=4
-set scrolloff=4
-set softtabstop=4
-set ignorecase
-set showmatch
-```
-
-其中，第一行显示行号，第二行增量搜索，第三行会在第81列显示一个红色竖线，第四行会高亮搜索项，第五行会高亮显示当前行，第六开打开语法高亮，第七行和第八行用于高亮显示行尾空格, 第8-10行将tab替换为4个空格，第11行忽略大小写，第12行高亮显示搜索项。

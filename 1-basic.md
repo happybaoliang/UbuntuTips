@@ -323,9 +323,9 @@ sudo ln -f -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions/mount.vboxsf
 ## 安装exfat
 对于ubuntu 14.04版本，直接运行下面的命令就可以了：
 ```
-安装完之后重启生效。
+sudo apt install exfat-fuse exfat-utils
 ```
-对于ubuntu 12.04 ~ 13.10的版本，分别：
+安装完之后重启生效。对于ubuntu 12.04 ~ 13.10的版本，分别：
 ```
 sudo add-apt-repository ppa:relan/exfatsudo apt-get updatesudo apt-get install exfat-utils fuse-exfat
 ```
