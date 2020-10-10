@@ -1805,13 +1805,15 @@ sudo apt-get install ncurses-dev
 
 WSL自带的shell工具非常不好用，不支持中文输入法，因此改用XShell。
 
-1. 下载openssh-server, ssh
+### 下载openssh-server, ssh
 
 ```
 sudo apt-get install openssh-server ssh
 ```
 
-2.使用WSL原生的命令行工具修改ssh配置文件/etc/ssh/sshd_config
+### 修改端口号
+
+使用WSL原生的命令行工具修改ssh配置文件/etc/ssh/sshd_config
 Port 2222（因为 Windows 10 的 SSH 端口已经默认被占用，所以我换成了一个新的端口）
 （去掉前面的 #）ListenAddress 0.0.0.0
 UsePrivilegeSeparation no（原来是 yes 改成 no）#如果没有这句就不需要添加
@@ -1819,21 +1821,27 @@ PermitRootLogin yes(修改成 yes)
 (在前面加上 #)StrictModes yes
 PasswordAuthentication yes（原来是 no，改成 yes）
 
-3.在WSL中启动ssh服务：
+### 在WSL中启动ssh服务
 
 ```
 sudo service ssh --full-restart
 ```
 
-4.打开XShell，选择新建会话：
+### 配置XShell
+
+打开XShell，选择新建会话：
 名称：WSL（这个随便填）
 协议：SSH
 主机：127.0.0.1（本机环回接口）
 端口号：2222
 
-5.输入WSL的账号和密码后，会提示找不到公钥，运行ssh-kengen命令生成公钥和私钥。
+### 创建公钥和私钥
 
-6.打开 启动栏->Windows管理程序->任务计划程序->创建基本任务：
+输入WSL的账号和密码后，会提示找不到公钥，运行ssh-kengen命令生成公钥和私钥。
+
+### 设置开机自启动
+
+打开 启动栏->Windows管理程序->任务计划程序->创建基本任务：
 名称：ubuntu ssh server
 触发器：当计算机启动时
 操作：启动程序
@@ -1842,6 +1850,47 @@ sudo service ssh --full-restart
 选择“当单击`完成`时，打开此任务属性的对话框”按钮
 点击完成，在打开的属性页选择“使用最高权限运行”，避免错误。
 
-7. 大功告成。
+## 配置Sphinx
 
+### 创建sphinx工程
+
+使用下面命令创建一个空的sphinx工程
+
+```
+sphinx-quickstart
+```
+
+### 配置sphinx支持markdown
+
+修改conf.py文件，使之支持markdown:
+
+```
+#source_suffix = '.rst'
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
+
+import recommonmark
+import sphinx
+source_parsers = {'.md': 'recommonmark.parser.CommonMarkParser'}
+```
+
+
+
+### 配置sphinx输出pdf
+
+修改conf.py，在latex_emements中增加中文支持：
+
+```
+latex_elements = {
+   'preamble': '''
+   \\hypersetup{unicode=true}
+   \\usepackage{CJKutf8}
+   \\AtBeginDocument{\\begin{CJK}{UTF8}{gbsn}}
+   \\AtEndDocument{\\end{CJK}}
+   ''',
+}
+```
 
