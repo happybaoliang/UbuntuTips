@@ -143,7 +143,7 @@ sudo ./install.sh
 
 在windows下建立一个新的文件夹oxford，然后将oald8.iso文件用虚拟光驱以文件形式的打开，打开后将里面的文件都复制的新建的oxford中。如图\ref{oxford}所示：
 
-<img src="_static/oxford.png" alt="oxford" style="zoom:75%;" />
+![oxford](_static/oxford.png)
 
 <center>安装词典</center>
 
@@ -249,7 +249,7 @@ sudo apt-get install youtube-dl
 youtube-dl -F http://www.youtube.com/watch?v=7pKHsPcQot4
 ```
 
-<img src="_static/youtube.png" alt="youtube" style="zoom:50%;" />
+![youtube](_static/youtube.png)
 <center>youtube可用参数</center>
 
 (3) 以-f 137下載成1080p的格式：
@@ -258,7 +258,7 @@ youtube-dl -F http://www.youtube.com/watch?v=7pKHsPcQot4
 youtube-dl -f 137 http://www.youtube.com/watch?v=7pKHsPcQot4
 ```
 
-<img src="_static/youtube1.png" alt="youtube1" style="zoom:50%;" />
+![youtube1](_static/youtube1.png)
 
 <center>youtube使用举例</center>
 
