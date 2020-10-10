@@ -510,7 +510,7 @@ $ sudo /mnt/iso/install-tl --gui
 
 信息读取完毕后，探出一个界面如下：
 
-<img src="figures\texlive.png" alt="texlive" style="zoom:180%;" />
+<img src="_static/texlive.png" alt="texlive" style="zoom:180%;" />
 
 <center>Texlive安装界面</center>
 我把最后一项“自动创建链接”修改外，其他保持原样。点击“安装TeX Live“。
@@ -1211,7 +1211,7 @@ $ ssh -v git@github.com
 
 如果输出图\ref{github}所示的信息则说明链接建立成功。
 
-<img src="D:\UbuntuTips\figures\github.png" alt="github连接成功" style="zoom:50%;" />
+<img src="_static/github.png" alt="github连接成功" style="zoom:50%;" />
 
 <center>github连接建立成功</center>
 (5)配置显示颜色
@@ -1493,7 +1493,7 @@ http://blog.csdn.net/wyj7260/article/details/9320113
 
 便可以调出安装界面，如果运行出错说找不到setup.sh文件，则运行下面的命令安装csh。
 
-<img src="figures\synopsys1.png" alt="synopsys1" style="zoom:50%;" />'
+<img src="_static/synopsys1.png" alt="synopsys1" style="zoom:50%;" />'
 
 <center>synopsys安装界面</center>
 ```
@@ -1502,7 +1502,7 @@ $ sudo apt-get install csh
 
 6.选中scl\_v10.9.3\_linux文件后点击下一步，如下图所示：
 
-<img src="figures\synopsys2.png" alt="synopsys2" style="zoom:50%;" />
+<img src="_static/synopsys2.png" alt="synopsys2" style="zoom:50%;" />
 <center>Synopsys安装界面</center>
 然后一直next，过程中有些选项都不需要管，直到选中安装目标路径/usr/synopsys/10.9.3。软件包每次安装完以后，点击finish以后都会出现一个对话框，不管他直接点击dismiss就可以了。
 　　
@@ -1524,11 +1524,11 @@ cannot find any platform files for product in /usr/synopsys/scl/scl\_v10.9.3\_co
 
 （2）进入EFA LicGen 0.4b文件夹，双击里面的licGen.exe，打开packs中的synopsys.lpd文件。
 
-<img src="figures\synopsys3.png" alt="synopsys3" style="zoom:50%;" />
+<img src="_static/synopsys3.png" alt="synopsys3" style="zoom:50%;" />
 <center>synopsys安装界面</center>
 （3）输入mac号，然后点击generate生成synopsys.dat文件。然后点击save将这个文件保存。
 
-<img src="figures\synopsys4.png" alt="synopsys4" style="zoom:50%;" />
+<img src="_static/synopsys4.png" alt="synopsys4" style="zoom:50%;" />
 <center>synopsys安装界面</center>
 （4）运行sssverify.exe synopsys.dat生成secret code.
 　　
@@ -1542,7 +1542,7 @@ cannot find any platform files for product in /usr/synopsys/scl/scl\_v10.9.3\_co
 DAEMON snpslmd /usr/synopsys/10.9.3/linux/bin/snpslmd
 ```
 
-<img src="figures\synopsys5.png" alt="synopsys5" style="zoom:50%;" />
+<img src="_static/synopsys5.png" alt="synopsys5" style="zoom:50%;" />
 <center>synopsys安装界面</center>
 (7)修改FEATURE SSS 部分
 
