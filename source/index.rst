@@ -14,10 +14,3 @@ Welcome to UbuntuTips's documentation!
    1-basic
    2-application
    3-accademy
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

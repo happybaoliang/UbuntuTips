@@ -1,35 +1,35 @@
 # 重要学术软件安装
 ## 安装及配置matlab
-(1) 配置Matlab使用的Java环境
+(1) 配置Matlab使用的Java环境:
 
 ```
 sudo update-alternatives --config java
 export MATLAB_JAVA=/usr/lib/jvm/java-6-sun-1.6.0.20/jre/
 ```
 
-(2) 挂载iso文件
+(2) 挂载iso文件:
 
 ```
 sudo mount -o loop Mathworks.Matlab.R2012a.UNIX.iso /mnt
 ```
 
-(3) 跳转到挂载目录
+(3) 跳转到挂载目录:
 
 ```
 cd /mnt
 ```
 
-(4) 安装
+(4) 安装:
 
 ```
 sudo ./install
 ```
 
-(5) 安装中选择“不使用Internet安装”
+(5) 安装中选择“不使用Internet安装”。
 
-(6) 窗口界面默认安装位置为 /usr/local/MATLAB/R2012a
+(6) 窗口界面默认安装位置为 /usr/local/MATLAB/R2012a。
 
-(7) 接受许可协议
+(7) 接受许可协议。
 
 (8) 输入安装密钥：
 
@@ -37,29 +37,27 @@ sudo ./install
 37176-43568-09521-61284-60764-48411-11831-17282-31342-18748-48552-26727-08411
 ```
 
-(9) 安装类型选择“自定义”
+(9) 安装类型选择“自定义”；
 
-(10) 点击“安装”进行安装
+(10) 点击“安装”进行安装；
 
-(11) 倒入许可协议（/mnt/crack/lic\_standalone.dat）
+(11) 倒入许可协议（/mnt/crack/lic\_standalone.dat）；
 
-(12) 等待安装结束
+(12) 等待安装结束;
 
-(13) 设置快捷方式
+(13) 设置快捷方式：
 
-1.将附件里的matlab.desktop文件放在 /usr/share/applications 下，图片matlab.png放在/usr/share/icons
+a.将附件里的matlab.desktop文件放在 /usr/share/applications 下，图片matlab.png放在/usr/share/icons。
 
-2.建立软链接
+b.建立软链接：
 
 ```
  sudo ln -s /usr/local/MATLAB/R2012a/bin/matlab /usr/bin/matlab
 ```
 
-(14) 解决中文乱码问题
+(14) 解决中文乱码问题：
 
-1. 字体显示美化
-
-进入Matlab，从菜单打开：Files->preferences，打开Fonts页，把右边最下面的复选框Use antialising to smooth desktop fonts选中，重启MATLAB，字体显示的效果就很好了.
+1.字体显示美化: 进入Matlab，从菜单打开Files->preferences，打开Fonts页，把右边最下面的复选框Use antialising to smooth desktop fonts选中，重启MATLAB，字体显示的效果就很好了.
 
 2.MATLAB使用自带的Java运行环境，根据CPU架构的不同，相对应的字体配置文件路径为：
 
@@ -67,15 +65,21 @@ sudo ./install
 
 64位版本 /usr/local/matlab/sys/java/jre/glnxa64/jre/lib/fontconfig.properties
 
-下面以32位版本为例
+下面以32位版本为例进行说明。
 
-3.进入字体配置文件目录 cd /usr/local/MATLAB/R2012a/sys/java/jre/glnx86/jre/lib
+3.进入字体配置文件目录：
 
-如果fontconfig.properties文件不存在，可以从fontconfig.properties.src复制一个
+```
+cd /usr/local/MATLAB/R2012a/sys/java/jre/glnx86/jre/lib
+```
 
+如果fontconfig.properties文件不存在，可以从fontconfig.properties.src复制一个:
+
+```
 sudo cp fontconfig.properties.src fontconfig.properties
+```
 
-4.字体可直接用系统自带的文泉驿
+4.字体可直接用系统自带的文泉驿:
 
 修改JRE的字体配置文件，打开配置文件：
 
@@ -85,13 +89,23 @@ sudo gedit fontconfig.propertie
 
 加入中文字体定义，在version=1下面一行输入
 
+```
 allfonts.chinese-arphic1=-misc-simsun-medium-r-normal--0-0-0-0-p-0-iso10646-1
+```
 
 如果文件已有allfonts.chinese-arphic1这行，就直接把它们改成上面那样。
 
-指明中文字体路径，在allfonts.chinese-arphic1行后回车另起一行，输入中文字体文件的完整路径：filename.-misc-simsun-medium-r-normal--0-0-0-0-p-0-iso10646-1=/usr/share/fonts/truetype/wqy/wqy-microhei.ttc
+指明中文字体路径，在allfonts.chinese-arphic1行后回车另起一行，输入中文字体文件的完整路径：
 
-5.修改字体搜索, 在配置文件中查找sequence.allfonts，如果其后的sequence开头的行中有: chinese-arphics1，可以略过此步，否则在其后面加入一行：sequence.fallback=chinese-arphic1
+```
+filename.-misc-simsun-medium-r-normal--0-0-0-0-p-0-iso10646-1=/usr/share/fonts/truetype/wqy/wqy-microhei.ttc
+```
+
+5.修改字体搜索, 在配置文件中查找sequence.allfonts，如果其后的sequence开头的行中有: chinese-arphics1，可以略过此步，否则在其后面加入一行：
+
+```
+sequence.fallback=chinese-arphic1
+```
 
 (15) 解决/usr/bin/matlab: 1: /usr/local/MATLAB/R2012a/bin/util/oscheck.sh: /lib/libc.so.6: not found
 
@@ -110,9 +124,9 @@ sudo ln -s /lib/x86_64-linux-gnu/libc.so.6 /lib64/libc.so.6
 ## Vmware安装及配置
 
 ## Virtualbox安装及配置
-(1) 双击deb文件进行安装
+(1) 双击deb文件进行安装;
 
-(2) 选择对应版本的extension包进行安装
+(2) 选择对应版本的extension包进行安装;
 
 (3) I'm on Ubuntu 12.04 64-bit and encountered exactly this problem. What finally worked was going to the virtualbox website, downloading the package and installing it via:
 
@@ -131,13 +145,13 @@ sudo /etc/init.d/vboxdrv setup
 And it worked like a charm.
 
 ## Cuda模拟器Ocelot的安装及配置
-(1) 建议使用svn checkout 最新的trunk
+(1) 建议使用svn checkout 最新的trunk:
 
 ```
 sudo svn checkout http://gpuocelot.googlecode.com/svn/trunk/ gpuocelot
 ```
 
-(2) 安装各种依赖包和库
+(2) 安装各种依赖包和库:
 
 ```
 sudo apt-get install flex bison autoconf automake libtool  g++
@@ -145,7 +159,7 @@ sudo apt-get install libboost1.40-all-dev
 sudo apt-get install  libglu1-mesa-dev freeglut3-dev mesa-common-dev
 ```
 
-上面一行是安装图形库GL，这个在后面cuda sdk 编译的时候会用到，反正安着也没坏处。我开始在安装ocelot的同时，手贱也去玩barra，安barra得注意几个包，因为需要直接和cuda sdk肉搏，常被告知 /usr/bin/ld 找不到 lxxx, 直接sudo apt-get install libxxx-dev就是了。
+上面一行是安装图形库GL，这个在后面cuda sdk编译的时候会用到，反正安着也没坏处。我开始在安装ocelot的同时，手贱也去玩barra，安barra得注意几个包，因为需要直接和cuda sdk肉搏，常被告知 /usr/bin/ld 找不到 lxxx, 直接sudo apt-get install libxxx-dev就是了。
 
 (3) 这些其实就可以进行正常编译了，当然，如果还想安装hydrazine也是可以的。
 
@@ -157,7 +171,7 @@ $ ./configure;make;make check
 $ sudo make install
 ```
 
-(4) 编译ocelot
+(4) 编译ocelot:
 
 ```
 $ cd gpuocelot/ocelot
@@ -165,15 +179,15 @@ $ libtoolize; aclocal; autoconf; automake
 $ ./configure;make
 ```
 
-建议进行安装，要不在后续进行regression test 时，它会要你回来安装的
+建议进行安装，要不在后续进行regression test时也需要重新安装。
 
 ```
 sudo make install
 ```
 
-但是这里注意，还需要安装cuda toolkit,最好版本匹配，就是说，你要进行cuda2.2的sdk 做测试，就最好安装2.2版本的tookit。
+但是这里注意，还需要安装cuda toolkit。cuda sdk和cuda toolkit的版本最好是匹配的。
 
-(5) 安装cuda 2.2 tookit
+(5) 安装cuda 2.2 tookit：
 
 ```
 gedit ~/.bashrc
@@ -186,7 +200,7 @@ PATH=/usr/local/cuda/bin：$PATH
 LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
 ```
 
-(6) 进行regression test
+(6) 进行regression test：
 
 ```
 $ cd ../gpuocelot/tests/cuda2.2
@@ -194,9 +208,9 @@ $ libtoolize;aclocal; autoconf; automake
 $ ./configure; make; make check
 ```
 
-在make check 这一步常会出错，错误大致为：“/usr/include/c++/4.4/new:91: error: 'operator new' takes type 'size\_t' ('unsigned int') as first parameter，”这个错误我在测试cuda2.3 和 cuda3.2的时候都出现过，很是无语，gcc.gnu.org说这是一个bug,我不知道如何应对，但是对于cuda2.2没有出现这个错误。
+在make check 这一步常会出错，错误大致为：“/usr/include/c++/4.4/new:91: error: 'operator new' takes type 'size_t' ('unsigned int') as first parameter，”这个错误我在测试cuda2.3 和 cuda3.2的时候都出现过，很是无语，gcc.gnu.org说这是一个bug,我不知道如何应对，但是对于cuda2.2没有出现这个错误。
 
-(7) 测试安装
+(7) 测试安装:
 
 ```
 $  make test
@@ -207,7 +221,7 @@ $  make test
 ## Mathematica的安装
 
 ## MPICh2的安装
-(1) 下载MPICH2并使用下面命令解压
+(1) 下载MPICH2并使用下面命令解压:
 
 ```
 tar xzf mpich2-1.3.2.tar.gz
@@ -229,7 +243,7 @@ $ ./configure --prefix=/usr/local/mpich2 2>&1 | tee c.txt
 $ make 2>&1 | tee m.txt
 ```
 
-(5) 安装 MPICH2 命令:
+(5) 安装MPICH2命令:
 
 ```
 $ make install 2>&1 | tee mi.txt
@@ -285,20 +299,24 @@ cannot open shared object file: No such file or directory
 $ sudo apt-get install libxtst6:i386 libxi6 libxrender1
 ```
 
-(2) 破解
+(2) 破解：
 
-修改license.src和mentor文件，将前两行的SERVER和VENDER的信息按照Linux系统进行修改。
+a.修改license.src和mentor文件，将前两行的SERVER和VENDER的信息按照Linux系统进行修改。
 
 ```
 SERVER HostName MACADDR 27001
 VENDOR mgcld /path-to-modelsim/modeltech/linux/mgcld
 ```
 
-安装wine aptitude install wine
+b.安装wine:
 
-运行wine MentorKG.exe 生成LIENCE.TXT
+```
+aptitude install wine
+```
 
-添加license到path里面
+c.运行wine MentorKG.exe 生成LIENCE.TXT.
+
+d.添加license到path里面:
 
 ```
 vim ~/.bashrc
@@ -307,9 +325,10 @@ export PATH=$PATH:[modelsim安装目录]/bin
 source ~/.bashrc
 ```
 
-在ubuntu 12.04上需要修改modeltech/bin/vsim文件的204行，增加
-
-\verb\ 3.[1-9].[0-9]*)    vco="linux" ;;\
+e.在ubuntu 12.04上需要修改modeltech/bin/vsim文件的204行，增加
+```
+\ 3.[1-9].[0-9]*)    vco="linux" ;;\
+```
 
 将crack/linux中的三个文件拷贝到Modelsim的安装目录Modelsim/modeltech/linux/mgls/lib目录中，然后运行$patch\_2013$中的命令：
 
@@ -330,19 +349,19 @@ error: failed to read+write: sfk6 - skipping
 
 说明破解是成功的。如果是0 files checked,  在ubuntu下加sudo试试。
 
-(3) 运行
+(3) 运行:
 
 ```
 $ vsim
 ```
 
-如果不能创建文件，考虑权限问题.如果在64位系统中出现下面的错误
+如果不能创建文件，考虑权限问题.如果在64位系统中出现下面的错误:
 
 ```
 error while loading shared libraries: libXft.so.2
 ```
 
-则运行下面的命令
+则运行下面的命令:
 
 ```
 $ sudo apt-get install ia32-libs
@@ -350,7 +369,7 @@ $ sudo apt-get install ia32-libs
 
 ## Nero的安装
 
-(1) 双击deb文件进行安装
+(1) 双击deb文件进行安装;
 
 ## NS2的安装
 (1) 首先需要安装的是：
@@ -361,7 +380,7 @@ sudo apt-get install tcl8.4 tcl8.4-dev tk8.4 tk8.4-dev
 sduo apt-get install libxmu-dev libxmu-headers
 ```
 
-(2) 把解压缩后的资料夹移动到你想安装的位置去
+(2) 把解压缩后的资料夹移动到你想安装的位置去:
 
 ```
 $ tar xvfz ns-allinone-2.31.tar.gz
@@ -379,7 +398,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/NS2/otcl-1.14:/usr/local/NS2/
 export TCL_LIBRARY=$TCL_LIBRARY:/usr/local/NS2/tcl8.5.10/library
 ```
 
-(3) 接着依照最后几行的讯息，去做验证，例如：
+(3) 接着依照最后几行的讯息去做验证，例如：
 
 ```
 $ cd ns-2.31; ./validate
@@ -416,25 +435,25 @@ $ make
 
 1. Either install a Linux system natively or install a Virtual machine (VirtualBox) (recommended).
 
-2. Download systemc-2.2.0.tgz
+2. Download systemc-2.2.0.tgz.
 
-3. tar -xvf systemc-2.2.0.tgz
+3. tar -xvf systemc-2.2.0.tgz.
 
-4. cd systemc-2.2.0
+4. cd systemc-2.2.0.
 
-5. configure --prefix=/usr/local/systemc-2.2
+5. configure --prefix=/usr/local/systemc-2.2.
 
-6. sudo mkdir /usr/local/systemc-2.2
+6. sudo mkdir /usr/local/systemc-2.2.
 
-7.0. add '\#include <cstdlib>' and '\#include <string.h>' before '\#include "sysc/utils/sc\_report.h"' in systemc-2.2.0/src/sysc/utils/sc\_utils\_ids.cpp
+7.0. add '\#include <cstdlib>' and '\#include <string.h>' before '\#include "sysc/utils/sc\_report.h"' in systemc-2.2.0/src/sysc/utils/sc\_utils\_ids.cpp.
 
-7.1 error: reference 'm\_obj' cannot be declared 'mutable' [-fpermissive]
+7.1 error: reference 'm\_obj' cannot be declared 'mutable' [-fpermissive].
 
 这个错误信息有好几行连续的，找到sc\_bit\_proxies.h，将那几行中的mutable都删去即可。
 
-8. make (ignore the complilation error of example code)
+8. make (ignore the complilation error of example code).
 
-9. sudo make install
+9. sudo make install.
 
 10. add newline with expression:
 
@@ -479,51 +498,44 @@ int sc_main(int argc, char* argv[]) {
 ## TeX Live 2011 安装步骤
 CTEX 有 TexLive （TexLive为Latex安装包的名字）的所有内容，还包括了中文的支持。但是在Linux环境下没有对应的ctex安装包.
 
-第一步：准备
+（1）准备如下材料：TeX Live 2011光盘镜像，Windows字体（从Windows 系统拷贝），Adobe字体（网络下载）。
 
-我是使用光盘镜像安装TeX Live 2011,所以在安装前需要准备如下材料：
-
-TeX Live 2011光盘镜像，Windows字体（从Windows 系统拷贝），Adobe字体（网络下载）
-
-第二步：开始安装(采用GUI安装方式)
-
-首先安装 perl-tk
+（2）首先安装 perl-tk：
 
 ```
 $ sudo aptitude install perl-tk
 ```
 
-挂载 TeX Live 2011 镜像
+（3）挂载 TeX Live 2011 镜像：
 
 ```
 sudo mkdir /mnt/iso
 sudo mount -o loop texlive2011.iso /mnt/iso
 ```
 
-安装
+（4）安装：
 
 ```
 $ sudo /mnt/iso/install-tl --gui
 ```
 
-第三步：安装TeX Live 2011
+（5）安装TeX Live 2011：
 
 信息读取完毕后，探出一个界面如下：
 
 ![texlive](_static/texlive.png)
 
 <center>Texlive安装界面</center>
+
 我把最后一项“自动创建链接”修改外，其他保持原样。点击“安装TeX Live“。
 
-第四步：配置环境变量
-
-我的默认shell 是bash.一次对照安装指南。打开终端，输入：
+（6）配置环境变量:
 
 ```
 vi ~/.profile或者vim /etc/bash.bashrc
 ```
 
-然后把以下代码添加进去(注意path一定要将texlive放在前面)
+然后把以下代码添加进去(注意path一定要将texlive放在前面):
 
 ```
 PATH=/usr/local/texlive/2011/bin/i386‐linux:$PATH; export PATH
@@ -531,28 +543,28 @@ MANPATH=/usr/local/texlive/2011/texmf/doc/man:$MANPATH; export MANPATH
 INFOPATH=/usr/local/texlive/2011/texmf/doc/info:$INFOPATH; export INFOPATH
 ```
 
-接着，修改/etc/manpath.config    
+接着，修改/etc/manpath.config:    
 
 ```
 $ sudo  vi /etc/manpath.config
 ```
 
-在\# set up PATH to MANPATH mapping下输入
+在\# set up PATH to MANPATH mapping下输入:
 
 ```
 MANPATH_MAP /usr/local/texlive/2011/bin/i386-linux /usr/local/texlive/2011/texmf/doc/man
 ```
 
-第五步：配置中文环境和中文字体安装
+（7）配置中文环境和中文字体安装:
 
-首先:创建Windows字体目录ＷinFonts和Adobe字体目录AdobeFonts
+a.创建Windows字体目录ＷinFonts和Adobe字体目录AdobeFonts:
 
 ```
 sudo mkdir /usr/share/fonts/WinFonts
 sudo mkdir /usr/share/fonts/AdobeFonts
 ```
 
-第二 复制上述准备的字体到各自目录.这里需要注意：修改上面拷贝字体的权限 
+b.复制上述准备的字体到各自目录.这里需要注意：修改上面拷贝字体的权限:
 
 ```
 sudo chmod 644 /usr/share/fonts/WinFonts/*
@@ -565,7 +577,7 @@ sudo chmod 644 /usr/share/fonts/AdobeFonts/*
 SimSun at 17.28pt not loadable
 ```
 
-第三 刷新字体缓存
+c.刷新字体缓存:
 
 ```
 sudo  mkfontscale
@@ -573,15 +585,15 @@ sudo mkfontdir
 sudo fc-cache -fsv
 ```
 
-第六步：安装中文字体后的配置
+（8）安装中文字体后的配置：
 
-首先，查看系统中安装的中文字体的名字。
+a.查看系统中安装的中文字体的名字。
 
 ```
 $ fc-list :lang=zh | sort
 ```
 
-第二, 查看并根据生成的 fonts 编辑 ctex-xecjk-winfonts.def
+b.查看并根据生成的 fonts 编辑 ctex-xecjk-winfonts.def:
 
 ```
 $ sudo  vi/usr/local/texlive/2011/texmf-dist/tex/latex/ctex/fontset/ctex-xecjk-winfonts.def
@@ -609,7 +621,9 @@ $ sudo  vi/usr/local/texlive/2011/texmf-dist/tex/latex/ctex/fontset/ctex-xecjk-w
 　　　　\endinput
 ```
 
-其中带中括号的字体名都是需要修改的，这时需运行
+其中带中括号的字体名都是需要修改的，
+
+这时需运行:
 
 ```
 $ fc-list :lang=zh-cn
@@ -640,13 +654,15 @@ $ fc-list :lang=zh-cn
 　　　　\endinput
 ```
 
-第三　ctex-xecjk-adobefonts.def不用改。
+c.ctex-xecjk-adobefonts.def不用改。
 
-第四.  sudo   tlmgr   install   xeCJK   ctex
+d.安装ctex:
 
-第八步：测试
+```
+sudo tlmgr install xeCJK ctex
+```
 
-输入一个典型的中文支持例子测试，用xelatex或pdflatex命令编译
+（9）输入一个典型的中文支持例子测试，用xelatex或pdflatex命令编译：
 
 ```
 \documentclass[UTF8]{ctexart}　　　　
@@ -655,7 +671,7 @@ $ fc-list :lang=zh-cn
 \end{document}
 ```
 
-第九步：安装texmaker
+（10）安装texmaker：
 
 ```
 sudo apt-get install texmaker
@@ -689,9 +705,12 @@ $ sudo apt-get install ruby irb rdoc
 ## 安装Maple
 
 ## 安装Tomcat
-(1)	下载连接http://java.sun.com/javase/downloads/index.jsp
+(1) 下载地址:
+```
+http://java.sun.com/javase/downloads/index.jsp
+```
 
-选择jdk-6u3-linux-i586.bin下载(可以下载最新的，但要注意一定不能是....i586-rpm.bin,一般Ubuntu下没有rpm工具)，将jdk-6u3-linux-i586.bin放置于任意目录下如：/home/test
+选择jdk-6u3-linux-i586.bin下载(可以下载最新的，但要注意一定不能是....i586-rpm.bin,一般Ubuntu下没有rpm工具)，将jdk-6u3-linux-i586.bin放置于任意目录下，例如/home/test。
 
 (2)更改文件权限为可执行、解压：
 
@@ -701,9 +720,9 @@ chmod u+x jdk-6u3-linux-i586.bin
 sudo ./jdk-6u3-linux-i586.bin yes/no选择yes，执行完之后边可
 ```
 
-以在test目录下面看到文件夹jdk1.6.0\_03
+以在test目录下面看到文件夹jdk1.6.0\_03。
 
-(3) 设置环境变量
+(3) 设置环境变量：
 
 ```
 sudo vi /etc/profile   在profile文件最后添加
@@ -713,17 +732,25 @@ export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 ```
 
-保存并关闭
+保存并关闭。
 
-(4) 重启系统 (也可以不用重启系统先logout然后login)
+(4) 重启系统 (也可以不用重启系统先logout然后login)。
 
-(5) 查看java版本
+(5) 在终端输入java -version，如果显示java版本的相关信息，则表示jdk安装成功。
 
-在终端输入java -version将会显示java版本的相关信息，jdk安装成功
+(6) 下载tomcat 6：
 
-(6) 下载tomcat 6 http://apache.etoak.com/tomcat/tomcat-6/v6.0.20/bin/apache-tomcat-6.0.20.tar.gz
+```
+http://apache.etoak.com/tomcat/tomcat-6/v6.0.20/bin/apache-tomcat-6.0.20.tar.gz
+```
 
-(7) 解压：tar zxvf apache-tomcat-6.0.20.tar.gz 就会在同一目录下产生 apache-tomcat-6.0.20文件夹；可以把apache-tomcat-6.0.20 拷贝到任意目录；
+(7) 解压：
+
+```
+tar zxvf apache-tomcat-6.0.20.tar.gz
+````
+
+会在同一目录下产生apache-tomcat-6.0.20文件夹；可以把apache-tomcat-6.0.20 拷贝到任意目录；
 
 ```
 sudo cp -r apache-tomcat-6.0.20 /var/tomcat6
@@ -731,9 +758,9 @@ cd /var/tomcat6/bin
 sudo ./startup.sh 或sudo ./catalina.sh run
 ```
 
-在浏览器输入 http://主机地址:8080/就能看到tomcat界面了
+在浏览器输入 http://主机地址:8080/就能看到tomcat界面了.
 
-(8) tomcat 设置
+(8) tomcat设置:
 
 ```
 cd /var/tomcat6/conf
@@ -743,17 +770,18 @@ sudo vi/tomcat-users.xml
 
 增加进入文件内文中 保存退出；
 
-(9) 重新启动 tomcat
+(9) 重新启动tomcat:
 
-回到 bin目录找到 shutdown.sh
+回到bin目录找到shutdown.sh，运行下列运行命令重新tomcat:
 
-运行命令 sudo ./shutdown.sh
-
-在运行命令 sudo ./startup.sh
+```
+ sudo ./shutdown.sh
+ sudo ./startup.sh
+```
 
 等待提示后就说明启动好了。
 
-(10) 在“tomcat界面”---“manager ”输入 上面的用户名和密码后就能管理站点了
+(10) 在“tomcat界面”---“manager”输入上面的用户名和密码后就能管理站点了.
 
 ## 安装GTK
 
@@ -776,13 +804,13 @@ pkg-config是一个用来管理包的程序，在控制台输入 pkg-config --cf
 ## 安装PHP
 安装平台基于Ubuntu 9.04.使用apt-get简单安装.在安装之前你要准备好源.还有安装库g++ vim ssh links因为你要用到这些功具.
 
-(1) Install Tools
+(1) Install Tools:
 
 ```
 $ sudo apt-get install g++ vim links ssh
 ```
 
-(2) 安装 MySQL 5.0
+(2) 安装MySQL 5.0:
 
 ```
 $ sudo apt-get install mysql-server mysql-client
@@ -794,7 +822,7 @@ New password for the MySQL “root” user: <– yourrootsqlpassword 你的MYSQL
 
 Repeat password for the MySQL “root” user: <– yourrootsqlpassword 你的MYSQL密码
 
-(3) 安装 Nginx
+(3) 安装Nginx:
 
 ```
 $ sudo apt-get install nginx
@@ -806,7 +834,7 @@ $ sudo apt-get install nginx
 $ sudo /etc/init.d/nginx start
 ```
 
-在IE浏览器输入你的IP地址:http://myip
+在IE浏览器输入你的IP地址: http://myip
 
 ```
 $ sudo links ls.ptubuntu.com
@@ -820,7 +848,7 @@ $ sudo update-rc.d nginx defaults
 
 提示:System startup links for /etc/init.d/nginx already exist.
 
-(4) 安装 PHP5
+(4) 安装 PHP5:
 
 ```
 $ sudo apt-get install php5-cgi php5-mysql php5-curl php5-gd php5-idn php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-mhash php5-ming php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl
@@ -838,7 +866,7 @@ root@ptUbuntu:/etc/php5/cgi# vi php.ini
 cgi.fix_pathinfo = 1
 ```
 
-(5) 安装lighttpd
+(5) 安装lighttpd:
 
 ```
 $ sudo apt-get install lighttpd
@@ -876,7 +904,7 @@ sudo vi /etc/rc.local
 ```
 
 
-配置sites-available/default
+配置sites-available/default:
 
 ```
 sudo cp default default.bak
@@ -994,7 +1022,7 @@ include        fastcgi_params;
 ```
  <?php phpinfo(); ?>
 ```
-重启nginx
+重启nginx:
 ```
 sudo /etc/init.d/nginx restart
 sudo /etc/init.d/lighttpd stop
@@ -1002,7 +1030,7 @@ sudo /etc/init.d/lighttpd stop
 
 这lighttp 要关了.要不然会网页显示会给跑到这里来.因为nginx \& ligttpd两个同时打开也会发生冲突的.而这里我们只是用到lighttp的插件所以没有必要开启.
 
-(6) 接下来要安装的是支持PHP mysql
+(6) 接下来要安装的是支持PHP mysql:
 
 ```
 wget http://nchc.dl.sourceforge.net/sourceforge/phpmyadmin/phpMyAdmin-2.11.9.5-all-languages.tar.bz2
@@ -1071,13 +1099,13 @@ Ubuntu Linux下配置Qt4的步骤（我的Ubuntu是8.04版）：
 3、关于集成开发环境我觉得QDevelop很不错，它跟Qt Designer结合的很好，而且有提示类成员函数的功能。使用Qdevelop编写代码和编译、调试，使用Qt Designer设计界面，开发效率较高。
 
 ## Java安装
-(1)开发JAVA程序的JDK环境(如果仅是运行Java程序，可用sun-java6-jre)
+(1)开发JAVA程序的JDK环境(如果仅是运行Java程序，可用sun-java6-jre):
 
 ```
 sudo apt-get install sun-java6-jdk --force-yes -y
 ```
 
-(2)安装浏览器的JAVA Plugin
+(2)安装浏览器的JAVA Plugin:
 
 ```
 sudo apt-get install sun-java6-plugin --force-yes -y
@@ -1089,13 +1117,13 @@ sudo apt-get install sun-java6-plugin --force-yes -y
 sudo apt-get install mysql-server mysql-client --force-yes -y
 ```
 
-(1)root原密码为空，给它加个密码
+(1)root原密码为空，给它加个密码:
 
 ```
 mysqladmin -uroot password 123456
 ```
 
-(2)重启动mysql服务（此步可省）
+(2)重启动mysql服务（此步可省）:
 
 ```
 mysqladmin -uroot -p123456 shutdown
@@ -1113,7 +1141,7 @@ sudo apt-get install dia --force-yes -y
 sudo apt-get install umbrello --force-yes –y
 ```
 
-安装eclipse
+## 安装eclipse
 
 ```
 $ sudo apt-get install eclipse
@@ -1149,7 +1177,7 @@ set wrapscan
 
 ## 安装Emacs
 
-(1) 安装emacs
+(1) 安装emacs;
 
 (2) 修改emacs配置文件，将下面的内容拷贝到/home目录下的.emacs.conf文件中。
 
@@ -1173,13 +1201,13 @@ $ sudo apt-get install python python-dev python-pip
 ```
 
 ## 安装版本管理工具
-(1)安装各种版本管理工具
+(1)安装各种版本管理工具:
 
 ```
 $ sudo apt-get install subversion cvs git git-core git-doc git-svn git-email git-gui gitk
 ```
 
-(2)配置git版本管理工具
+(2)配置git版本管理工具:
 
 ```
 $ git config --global user.name happybaoliang
@@ -1187,7 +1215,7 @@ $ git config --global user.email happybaoliang@gmail.com
 $ git config --global core.editor vim
 ```
 
-(3)创建验证用的公钥
+(3)创建验证用的公钥:
 
 git默认是通过ssh的方式来访问资源库的，所以需要在本地创建验证用的文件。
 
@@ -1201,9 +1229,7 @@ $ ssh-keygen -C 'happybaoliang@gmail.com' -t rsa
 $ ssh -v git@github.com
 ```
 
-(4)上传公钥
-
-在github.com的界面选择右上角的account settings然后选择SSH Public Keys，再选择添加。Title可以随便命名，key的内容拷贝自\~/.ssh/id\_rsa.pub的内容（可以通过cat命令查看）。然后运行下面的命令即可查看是否链接建立成功。
+(4)上传公钥: 在github.com的界面选择右上角的account settings然后选择SSH Public Keys，再选择添加。Title可以随便命名，key的内容拷贝自\~/.ssh/id\_rsa.pub的内容（可以通过cat命令查看）。然后运行下面的命令即可查看是否链接建立成功。
 
 ```
 $ ssh -v git@github.com
@@ -1214,7 +1240,8 @@ $ ssh -v git@github.com
 ![github](_static/github.png)
 
 <center>github连接建立成功</center>
-(5)配置显示颜色
+
+(5)配置显示颜色:
 
 ```
 $ git config --global color.status auto
@@ -1223,9 +1250,7 @@ $ git config --global color.branch auto
 $ git config --global color.interactive auto
 ```
 
-(6)中文乱码的解决方法
-
-在bash提示符下输入：
+(6)中文乱码的解决方法: 在bash提示符下输入：
 
 ```
 $ git config --global core.quotepath false
@@ -1252,34 +1277,31 @@ $ sudo apt-get install perl
 
 (2) 因为SCons是用Python编写的，所以你必须在使用SCons之前安装好Python (2.7.5)。
 
-(3) 安装scons （2.1以上）
+(3) 安装scons （2.1以上）;
 
 ```
 $ sudo apt-get install scons
 ```
 
-(4) 安装swig （2.07以上）
+(4) 安装swig （2.07以上）;
 
 ```
 $ sudo apt-get install swig
 ```
 
-(5) 安装zlib (1.2.8以上)
+(5) 安装zlib (1.2.8以上);
 
 ```
 $ sudo apt-get install zlib
 ```
 
-(6) 安装M4
-
-先将下载的m4-1.4.17.tar.gz解压:tar -xzvf m4-1.4.17.tar.gz解压之后的文件夹 m4-1.4.17放到gem5\_stable目录下cd m4-1.4.17
-执行命令：
+(6) 安装M4: 先将下载的m4-1.4.17.tar.gz解压:tar -xzvf m4-1.4.17.tar.gz解压之后的文件夹 m4-1.4.17放到gem5\_stable目录下cd m4-1.4.17,然后执行命令：
 
 ```
 $ sudo ./configuresudo make install
 ```
 
-(7) 安装protobuf
+(7) 安装protobuf:
 
 将下载的安装包解压后进入源代码目录
 
@@ -1288,22 +1310,23 @@ $ sudo ./configuresudo make install
 sudo make install
 ```
 
-(8) 安装libprotobuf-dev
+(8) 安装libprotobuf-dev:
 
 ```
 $ sudo apt-get install libprotobuf-dev
 ```
 
-(9)	安装libgoogle-perftools-dev
+(9) 安装libgoogle-perftools-dev:
 
 ```
 $ sudo apt-get install libgoogle-perftools-dev
 ```
 
-(10)	编译gem5：cd gem5-stable
+(10) 编译gem5：
 
 ```
-$ sudo mkdir build
+cd gem5-stable
+sudo mkdir build
 ```
 
 指定编译的选项及目标文件，例如：
@@ -1314,9 +1337,7 @@ scons build/ALPHA/gem5.opt
 
 错误：can't find Python.h header in ['/usr/include/python2.7']解决：sudo apt-get install python-dev
 
-(11) 测试SE模式下的Hello World
-
-在gem5目录下输入命令
+(11) 测试SE模式下的Hello World, 在gem5目录下输入命令
 
 ```
 ./build/ALPHA/gem5.opt ./configs/example/se.py -c tests/test-progs/hello/bin/alpha/linux/hello 
@@ -1340,10 +1361,9 @@ hack: be nice to actually delete the event here
 Exiting @ tick 3233000 because target called exit()
 ```
 
-
 安装成功！
 
-(12) 在full system下模式下运行alpha编译的测试程序
+(12) 在full system下模式下运行alpha编译的测试程序:
 
 在gem5-stable根目录下创建dist目录，并在该目录中创建alpha目录，并将下载的m5-system-2.03.tar.bz2解压，将其中的binaries和disks目录放在dist/alpha目录中。
 
@@ -1355,19 +1375,21 @@ Exiting @ tick 3233000 because target called exit()
 except KeyError: path = [ '/dist/m5/system', ' /home/happy/gem5-stable/dist/alpha' ]
 ```
 
-然后编译gem5
+然后编译gem5:
 
+```
 ~/gem5-stable \$ scons ./build/ALPHA/gem5.opt
+```
 
 可以通过 GEM5/m5out/system.terminal查看启动linux内核的monitor进程。
 
-运行模拟的linux系统
+运行模拟的linux系统:
 
 ```
 ./build/ALPHA/gem5.opt ./configs/example/fs.py  
 ```
 
-将看到如下界面
+将看到如下界面:
 
 ```
 gem5 Simulator System. http://gem5.org
@@ -1388,8 +1410,7 @@ warn: Prefetch instructions in Alpha do not do anything
 warn: Prefetch instructions in Alpha do not do anything
 ```
 
-
-开启另外一个ssh界面，使用M5Term来与simulatedsystem进行交互
+开启另外一个ssh界面，使用M5Term来与simulatedsystem进行交互:
 
 ```
 ~/gem5-stable$cd ./util/term  
@@ -1409,25 +1430,44 @@ dev         lib         mnt         sbin        usr
 ```
 
 5、在模拟系统中运行一个测试程序试试：
+
+```
 　　#cd benchmarks
 　　#ls
+```
+
 　　将看到如下几个测试程序：
+```
 　　aio-bench           netperf-bin         surge
 　　micros              pthread_mutex_test
+```
+```
 　　#./pthread_mutex_test2 2
+```
 　　运行结果如下：
+```
 　　Using 2 threadsfor 2 iters
 　　Counter value is 4
+```
 
 现在以将GEM/tests/test-progs/hello/bin/alpha/linux/hello，mount进模拟的系统为例，讲述如何将编译好的程序mount进被模拟的系统。
 
-1、将hello文件拷贝到当前路径/gem5-stable\$ cp./tests/test-progs/hello/bin/alpha/linux/hello ./hello  
+1、将hello文件拷贝到当前路径的gem5-stable：
 
-2、~/gem5-stable\$ sudo mount -o,loop,offset=32256 ./dist/disks/linux-latest.img /mnt  
+```
+cp./tests/test-progs/hello/bin/alpha/linux/hello
+./hello  
+```
 
-关于偏移量32256请参考链接：http://my.oschina.net/toyandong/blog/65002  
+2、
 
-3、显示一下/mnt，可以看到挂载好的操作系统  
+```
+sudo mount -o,loop,offset=32256 ./dist/disks/linux-latest.img /mnt
+```
+
+关于偏移量32256请参考链接：http://my.oschina.net/toyandong/blog/65002.
+
+3、显示一下/mnt，可以看到挂载好的操作系统:
 
 ```
 ~/gem5-stable$ ls/mnt  
@@ -1438,10 +1478,10 @@ bin         etc lib    lost+found  modules sbin  tmp  var
 4、  在使用linux的image文件之前，应该执行umount操作。  
 
 ```
-~/gem5-stable\$ sudo umount /mnt  
+~/gem5-stable\$ sudo umount /mnt
 ```
 
-5、  重新开启模拟的linux，进入模拟的linux (参考本文 “运行” 中的2和3) 
+5、重新开启模拟的linux，进入模拟的linux (参考本文 “运行” 中的2和3) :
 
 ```
 #ls  
@@ -1451,7 +1491,7 @@ bin         iscsi       lost+found  proc       testGem5   var
 dev         lib         mnt         sbin        tmp
 ```
 
-6、cd testGem5
+6、cd testGem5:
 
 ```
 $ sudo ./hello
@@ -1463,14 +1503,16 @@ $ sudo ./hello
 Hello world!
 ```
 
-(13)在full system模式下运行x86程序的方法可以参考下面的网页。
+(13)在full system模式下运行x86程序的方法可以参考下面的网页:
 
+```
 http://blog.csdn.net/wyj7260/article/details/9320113
+```
 
 ## 安装Design Compiler
 1.在linux的根目录下建立/usr/synopsys文件夹。
 
-2.在目录下创立以下的目录结构
+2.在目录下创立以下的目录结构:
 
 ```
 /usr/synopsys
@@ -1509,7 +1551,9 @@ $ sudo apt-get install csh
 　　
 7.以同样的方法把scl\_v10.9.3\_common.tar文件安装到10.9.3目录。在安装过程中可能会出现下面的错误：
 
+```
 cannot find any platform files for product in /usr/synopsys/scl/scl\_v10.9.3\_common platform files.
+```
 
 不用理它，选择No，然后在弹出的对话框中选择next。然后即可完成安装。
 
@@ -1519,7 +1563,7 @@ cannot find any platform files for product in /usr/synopsys/scl/scl\_v10.9.3\_co
 
 10.以同样的方法将vcs-mx\_vD-2009[1].12\_linux.rar和vcs-mx\_vD-2009[1].12\_common.rar解压缩并安装好，这两个包的时候最好分开安装，先安装linux包。这两个包都放在/usr/synopsys/D-2009.12下。
 
-11.在Windows环境下制作DC2008—license和启动配置文件
+11.在Windows环境下制作DC2008—license和启动配置文件:
 　
 （1）解压dc\_license.rar
 
@@ -1535,9 +1579,9 @@ cannot find any platform files for product in /usr/synopsys/scl/scl\_v10.9.3\_co
 
 （4）运行sssverify.exe synopsys.dat生成secret code.
 　　
-(5)运行KeyGen.exe,在Secretdata栏中输出上面的secret data码，在host id中填入你的mac地址。然后点击generate命令即可以得到lincense.dat文件。
+（5）运行KeyGen.exe,在Secretdata栏中输出上面的secret data码，在host id中填入你的mac地址。然后点击generate命令即可以得到lincense.dat文件。
 
-(6)用记事本打开"synopsys.dat"，将第一行修改为：SERVER 主机名 MAC地址27000。其中主机名是Linux系统下的主机名，可在Linux的终端中用"uname -a"命令查看，一般情况下就是@后面的名字；MAC地址就是网卡地址，后面的27000是默认需要的。将"synopsys.dat"第二行改为:
+（6）用记事本打开"synopsys.dat"，将第一行修改为：SERVER 主机名 MAC地址27000。其中主机名是Linux系统下的主机名，可在Linux的终端中用"uname -a"命令查看，一般情况下就是@后面的名字；MAC地址就是网卡地址，后面的27000是默认需要的。将"synopsys.dat"第二行改为:
 
 下图就是我得到的license：
 
@@ -1548,9 +1592,7 @@ DAEMON snpslmd /usr/synopsys/10.9.3/linux/bin/snpslmd
 ![synopsys5](_static/synopsys5.png)
 <center>synopsys安装界面</center>
 
-(7)修改FEATURE SSS 部分
-
-打开之前生成的 license.dat(license\\Synopsys SSS Feature Keygen\\license.dat)，复制其中的中的 FEATURE SSS 部分，覆盖掉 synopsys.dat 中的 Feature SSS 部分。
+（7）修改FEATURE SSS部分: 打开之前生成的license.dat(license\\Synopsys SSS Feature Keygen\\license.dat)，复制其中的中的 FEATURE SSS 部分，覆盖掉 synopsys.dat 中的 Feature SSS 部分。
 
 (8)至此license 的制作完成，将synopsys.dat拷贝的/usr/synopsys/license 文件夹下。
 
@@ -1565,7 +1607,7 @@ export VCS_HOME=$SYNOPSYS/D-2009.12
 alias lmli2="/usr/synopsys/10.9.3/linux/bin/lmgrd -c /usr/synopsys/license/synopsys.dat -l ~/syn_lic.log"
 ```
 
-(10)更新.bashrc文件
+(10)更新.bashrc文件:
 
 ```
 $ sudo source .bashrc
@@ -1577,7 +1619,7 @@ $ sudo source .bashrc
 bin sh illegal option
 ```
 
-那么运行下面的命令修改/bin/sh的链接
+那么运行下面的命令修改/bin/sh的链接:
 
 ```
 #rm –f /bin/sh
@@ -1585,19 +1627,19 @@ bin sh illegal option
 ```
 
 (15)如果在运行vcs时出现下面的错误：
-
+```
 /usr/synopsys/D-2009.12/bin/vcsMsgReport: line 332: /bin/basename: No such file or directory
-
-将Makefile文件中的-full64选项去掉，同时在.bashrc文件中增加下面的代码
-
+```
+将Makefile文件中的-full64选项去掉，同时在.bashrc文件中增加下面的代码:
+```
 export VCS\_ARCH\_OVERRIDE=linux
-
+```
 即可。
 
 (16)如果在64位系统中编译过程中遇到下面的错误：
-
+```
 /usr/include/features.h:324:26: fatal error: bits/predefs.h: No such file or directory
-
+```
 输入下面的命令解决：
 
 ```
@@ -1617,7 +1659,10 @@ $ sudo apt-get install gcc-multilib g++-multilib
 #ln –s g++-4.4 g++
 ```
 
-(17)如果在64位系统中编译过程中遇到下面的错误：g++ selected multilib '32' not installed
+(17)如果在64位系统中编译过程中遇到下面的错误：
+```
+g++ selected multilib '32' not installed
+```
 
 需要安装gcc、g++的multilib包，直接执行下面的命令，会自动安装g++、gcc的multilib包；
 
@@ -1626,25 +1671,25 @@ sudo apt-get install g++-4.4-multilib
 ```
 
 ## 安装Source Insight
-(1) 安装wine
+(1) 安装wine;
 
-(2) 安装source insight.exe
+(2) 安装source insight.exe;
 
 ```
 $ sudo wine source insight.exe
 ```
 
-(3) 破解
+(3) 破解:
 
 ## 安装Codeblocks
-(1) 安装基本编译环境
+(1) 安装基本编译环境:
 
 ```
 $sudo apt-get install build-essential
 $sudo apt-get install gdb
 ```
 
-(2) 安装codeblock
+(2) 安装codeblock:
 
 ```
 $sudo apt-get install codeblocks
@@ -1652,7 +1697,7 @@ $sudo apt-get install codeblocks-dbg
 $sudo apt-get install wxformbuilder
 ```
 
-(3) 安装wxWidgets
+(3) 安装wxWidgets:
 
 ```
 $sudo apt-get install libwxbase2.8
@@ -1677,11 +1722,11 @@ $ sudo apt-get install gtkwave
 
 ## 安装kscope
 
-(1) sudo add-apt-repository ppa:fbirlik/kscope
+(1) sudo add-apt-repository ppa:fbirlik/kscope;
 
-(2) apt-get update
+(2) apt-get update;
 
-(3) sudo apt-get install kscope-trinity
+(3) sudo apt-get install kscope-trinity;
 
 ```
 The following package was automatically installed and is no longer required:
@@ -1767,12 +1812,12 @@ sudo apt-get install gitlab-runner
 sudo gitlab-runner register
 ```
 
-
 在注册过程中，coordinator URL和gitlab-ci token可以在http://localhost/help/ci/quick\_start/README页面找到。gitlab-ci tags要与.gitlab-ci.yml文件中的tag一致。如果注册成功，在项目首页右侧设置->CI/CD Pipelines->Runners activated for this project项目下就可以看到刚才注册的runner了。
 
 有时runner会连接不上，或者在项目仓库->设置->runner里呈灰色，这有可能是runner机器上没有启动gitlab-runner引起的，可以执行ps -ef | grep gitlab看看是否存在gitlab-runner的进程，如果没有则执行gitlab-runner start 命令启动runner服务。
 
 ## 安装jenkins
+
 官网下载jenkens二进制包安装即可,可以在/etc/default/jenkins中修改jenkins的默认端口HTTP\_PORT以防止端口冲突。然后运行下面的命令启动jenkins:
 
 ```
@@ -1791,7 +1836,7 @@ sudo mkdir -p /data/tensorflow/notebooks
 docker run -it --rm --name myts -v /data/tensorflow/notebooks:/notebooks -p 8888:8888 daocloud.io/daocloud/tensorflow:latest
 ```
 
-打个补丁
+打个补丁:
 
 ```
 #!/usr/bin/env bash
@@ -1799,6 +1844,7 @@ jupyter notebook --no-browser --NotebookApp.token='token1234' > /notebooks/jupyt
 ```
 
 ## 安装ncurse库
+
 ncurses库是编译llvm必须的库
 
 ```
@@ -1817,13 +1863,19 @@ sudo apt-get install openssh-server ssh
 
 ### 修改端口号
 
-使用WSL原生的命令行工具修改ssh配置文件/etc/ssh/sshd_config
-Port 2222（因为 Windows 10 的 SSH 端口已经默认被占用，所以我换成了一个新的端口）
-（去掉前面的 #）ListenAddress 0.0.0.0
-UsePrivilegeSeparation no（原来是 yes 改成 no）#如果没有这句就不需要添加
-PermitRootLogin yes(修改成 yes)
-(在前面加上 #)StrictModes yes
-PasswordAuthentication yes（原来是 no，改成 yes）
+使用WSL原生的命令行工具修改ssh配置文件/etc/ssh/sshd_config:
+
+a.Port 2222（因为 Windows 10 的 SSH 端口已经默认被占用，所以我换成了一个新的端口）
+
+b.（去掉前面的 #）ListenAddress 0.0.0.0
+
+c.UsePrivilegeSeparation no（原来是 yes 改成 no）#如果没有这句就不需要添加
+
+d.PermitRootLogin yes(修改成 yes)
+
+e.(在前面加上 #)StrictModes yes
+
+f.PasswordAuthentication yes（原来是 no，改成 yes）
 
 ### 在WSL中启动ssh服务
 
@@ -1834,10 +1886,12 @@ sudo service ssh --full-restart
 ### 配置XShell
 
 打开XShell，选择新建会话：
+```
 名称：WSL（这个随便填）
 协议：SSH
 主机：127.0.0.1（本机环回接口）
 端口号：2222
+```
 
 ### 创建公钥和私钥
 
@@ -1846,19 +1900,20 @@ sudo service ssh --full-restart
 ### 设置开机自启动
 
 打开 启动栏->Windows管理程序->任务计划程序->创建基本任务：
+```
 名称：ubuntu ssh server
 触发器：当计算机启动时
 操作：启动程序
 程序名：C:\Windows\System32\bash.exe
 参数为-c "echo wsl-password | sudo -S service ssh --full-restart", 意思是打开bash，执行sshd命令开启ssh服务
-选择“当单击`完成`时，打开此任务属性的对话框”按钮
-点击完成，在打开的属性页选择“使用最高权限运行”，避免错误。
+```
+选择“当单击`完成`时，打开此任务属性的对话框”按钮,点击完成，在打开的属性页选择“使用最高权限运行”，避免错误。
 
 ## 配置Sphinx
 
 ### 创建sphinx工程
 
-使用下面命令创建一个空的sphinx工程
+使用下面命令创建一个空的sphinx工程:
 
 ```
 sphinx-quickstart
