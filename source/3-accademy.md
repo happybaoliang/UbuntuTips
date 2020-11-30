@@ -1909,6 +1909,32 @@ sudo service ssh --full-restart
 ```
 选择“当单击`完成`时，打开此任务属性的对话框”按钮,点击完成，在打开的属性页选择“使用最高权限运行”，避免错误。
 
+## 设置WSL系统共享目录
+
+WSL的root目录对应windows的子目录如下：
+
+```
+C:\Users\libaoliang\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState\rootfs
+```
+
+其中AppData文件夹默认是隐藏的，但你可以在路径里输入AppData进去。但实际上微软为我们提供了一个默认的变量可以直接指向WSL的目录，`wsl$` 你可以在运行(win+R)或资源管理器的路径里直接输入`\\wsl$`进入Ubuntu的目录。
+
+知道了WSL网络的路径以后就可以直接将它添加到资源管理器的网络位置里。
+
+## 安装Sphinx
+
+```
+apt-get install python3-sphinx
+apt-get install python3-pip
+pip3 install recommonmark
+pip3 install spinx_rtd_theme
+apt-get install doxygen-latex
+apt-get install latexmk
+apt-get install latex-cjk-*
+apt-get install texlive-latex-extra
+apt-get install texlive-latex-recommended
+```
+
 ## 配置Sphinx
 
 ### 创建sphinx工程
@@ -1935,8 +1961,6 @@ import recommonmark
 import sphinx
 source_parsers = {'.md': 'recommonmark.parser.CommonMarkParser'}
 ```
-
-
 
 ### 配置sphinx输出pdf
 
