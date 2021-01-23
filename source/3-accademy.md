@@ -1909,6 +1909,38 @@ sudo service ssh --full-restart
 ```
 选择“当单击`完成`时，打开此任务属性的对话框”按钮,点击完成，在打开的属性页选择“使用最高权限运行”，避免错误。
 
+### 迁移WSL到非系统目录
+
+打开powershell，关闭WSL:
+
+```
+wsl --shutdown
+```
+查看系统信息：
+```
+wsl -l -v
+```
+
+导出系统：
+```
+wsl --export Ubuntu-20.04 D:\WSL\Ubuntu-20.04.tar
+```
+
+删除系统：
+```
+wsl --unregister Ubuntu-20.04
+```
+
+导入系统：
+```
+wsl --import Ubuntu-20.04 D:\Ubuntu-20.04 D:\Ubuntu-20.04.tar
+wsl -l -v
+```
+设置默认用户：
+```
+ubuntu2004.exe config --default-user xxxx
+```
+
 ## 设置WSL系统共享目录
 
 WSL的root目录对应windows的子目录如下：
