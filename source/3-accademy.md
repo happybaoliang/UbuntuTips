@@ -1707,6 +1707,18 @@ f.PasswordAuthentication yes（原来是 no，改成 yes）
 sudo service ssh --full-restart
 ```
 
+如果报以下错误：
+
+```
+sshd: no hostkeys available -- exiting
+```
+
+说明还没有在本地生成ssh密钥，只需要支行以下命令即可：
+
+```
+sudo ssh-keygen -A
+```
+
 ### 配置XShell
 
 打开XShell，选择新建会话：
@@ -1719,7 +1731,7 @@ sudo service ssh --full-restart
 
 ### 创建公钥和私钥
 
-输入WSL的账号和密码后，会提示找不到公钥，运行ssh-kengen命令生成公钥和私钥。
+输入WSL的账号和密码后，会提示找不到公钥，运行ssh-kengen命令生成公钥和私钥。然后在~/.ssh/authorized_keys文件中粘贴新创建的公钥即可。
 
 ### 设置开机自启动
 
