@@ -1801,6 +1801,9 @@ apt-get install latexmk
 apt-get install latex-cjk-*
 apt-get install texlive-latex-extra
 apt-get install texlive-latex-recommended
+apt-get install texlive-full
+pip3 install sphinx sphinx-autobuild restructuredtext-lint
+pip3 install sphinx_materialdesign_theme sphinxcontrib-plantuml
 ```
 
 ## 配置Sphinx
@@ -1844,4 +1847,24 @@ latex_elements = {
    ''',
 }
 ```
+### 配置sphinx支持mermaid
+运行以下命令安装mermaid包：
+```
+pip3 install sphinxcontrib-mermaid
+```
+然后将mermaid加入到conf.py文件中：
+```
+extensions = [
+  ...,
+  'sphinxcontrib.mermaid'
+]
+```
 
+### 运行以下命令配置mermaid-cli
+mermaid-cli可以将mermaid写成的脚本编译为图像文件。
+```
+sudo apt-get install npm
+sudo npm install -g mermaid.cli
+sudo npm install -g puppeteer
+sudo npm install -g chromium
+```
