@@ -1806,8 +1806,6 @@ pip3 install sphinx sphinx-autobuild restructuredtext-lint
 pip3 install sphinx_materialdesign_theme sphinxcontrib-plantuml
 ```
 
-## 配置Sphinx
-
 ### 创建sphinx工程
 
 使用下面命令创建一个空的sphinx工程:
@@ -1831,6 +1829,15 @@ source_suffix = {
 import recommonmark
 import sphinx
 source_parsers = {'.md': 'recommonmark.parser.CommonMarkParser'}
+```
+
+### 配置sphinx支持latex公式
+修改conf.py，在extensions中增加中文支持：
+```
+extensions = [
+  ...,
+  'sphinx.ext.mathjax'
+]
 ```
 
 ### 配置sphinx输出pdf
@@ -1859,6 +1866,19 @@ extensions = [
   'sphinxcontrib.mermaid'
 ]
 ```
+### 配置markdown_tables
+安装插件：
+```
+pip3 install sphinx-markdown-tables
+```
+在extensions中加入以下配置：
+```
+extensions = [
+  ...,
+  'sphinx_markdown_tables'
+]
+
+```
 
 ### 运行以下命令配置mermaid-cli
 mermaid-cli可以将mermaid写成的脚本编译为图像文件。
@@ -1868,3 +1888,10 @@ sudo npm install -g mermaid.cli
 sudo npm install -g puppeteer
 sudo npm install -g chromium
 ```
+
+### 安装pandoc
+
+```
+sudo apt-get install pandoc
+```
+
