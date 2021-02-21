@@ -1893,5 +1893,6 @@ sudo npm install -g chromium
 
 ```
 sudo apt-get install pandoc
+sudo npm install --global pandoc-mermaid-filter
 ```
 
