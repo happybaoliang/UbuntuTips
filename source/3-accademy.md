@@ -1896,3 +1896,9 @@ sudo apt-get install pandoc
 sudo npm install --global pandoc-mermaid-filter
 ```
 
+### 安装onenote
+```
+sudo apt update
+sudo apt install snapd
+sudo snap install onenote-desktop --beta
+```
