@@ -1789,8 +1789,33 @@ C:\Users\libaoliang\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWi
 
 知道了WSL网络的路径以后就可以直接将它添加到资源管理器的网络位置里。
 
-## 安装Sphinx
+## WSL无法启动的解决办法
 
+没有收到虚拟机或容器的回应，操作超时。已退出进程，代码为 4294967295]
+
+解决的方法 ：在管理员模式运行Power Shell或CMD并输入:netsh winsock reset执行后重启电脑解决
+
+
+## 设置WSL内存上限
+
+C:\Users\username中新建一个.wslconfig文件：
+
+```
+[wsl2]
+processors=8
+memory=8GB
+swap=8GB
+localhostForwarding=true
+```
+
+## 安装ninja
+
+```
+sudo apt-get install ninja-build
+```
+
+
+## 安装Sphinx
 ```
 apt-get install python3-sphinx
 apt-get install python3-pip
